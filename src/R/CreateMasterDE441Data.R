@@ -1,0 +1,21 @@
+
+library(here)
+library(arrow)
+library(stringr)
+library(dplyr)
+library(logger)
+
+source(here("src", "R", "Scripts.R"))
+
+CreateMasterDE441Sun()
+CreateMasterDE441Moon()
+CreateMasterDE441Mercury()
+CreateMasterDE441Venus()
+CreateMasterDE441EMB()
+CreateMasterDE441Mars()
+CreateMasterDE441Jupiter()
+CreateMasterDE441Saturn()
+CreateMasterDE441Uranus()
+CreateMasterDE441Neptune()
+CreateMasterDE441Pluto()
+CreateMasterDE441Nutation()
