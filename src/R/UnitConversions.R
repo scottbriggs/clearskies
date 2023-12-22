@@ -16,7 +16,7 @@
 #' dmsToDeg(0, 0, 30)
 #' dmsToDeg(0, 0, -30)
 #'
-dmsToDeg <- function(deg, min, sec)
+DMSToDeg <- function(deg, min, sec)
 {
   sg <- 0
   if (deg != 0) {
@@ -53,14 +53,14 @@ dmsToDeg <- function(deg, min, sec)
 #' degToDMS(10.2958)
 #' degToDMS(13.069444)
 
-degToDMS <- function(decDeg)
+DegToDMS <- function(decDeg)
 {
   sg <- sign(decDeg)
 
   Dec <- abs(decDeg)
-  Degrees <- intPart(Dec)
-  Minutes <- intPart(60 * fracPart(Dec))
-  Seconds <- 60 * fracPart(60 * fracPart(Dec))
+  Degrees <- IntPart(Dec)
+  Minutes <- IntPart(60 * FracPart(Dec))
+  Seconds <- 60 * FracPart(60 * FracPart(Dec))
 
   Seconds <- round(Seconds, 2)
 
@@ -98,14 +98,14 @@ degToDMS <- function(decDeg)
 #' hourToHMS(-1)
 #' hourToHMS(25)
 
-hourToHMS <- function(decHr)
+HourToHMS <- function(decHr)
 {
   try(if(decHr < 0) stop("Hours must be >= 0"))
   try(if(decHr > 24) stop("Hours must be <= 24"))
 
-  Hours <- intPart(decHr)
-  Minutes <- intPart(60 * fracPart(decHr))
-  Seconds <- 60 * fracPart(60 * fracPart(decHr))
+  Hours <- IntPart(decHr)
+  Minutes <- IntPart(60 * FracPart(decHr))
+  Seconds <- 60 * FracPart(60 * FracPart(decHr))
 
   Seconds <- round(Seconds, 2)
 
@@ -136,7 +136,7 @@ hourToHMS <- function(decHr)
 #' hmsToHour(-2, 0, 0)
 #' hmsToHour(25, 0, 0)
 
-hmsToHour <- function(hours, minutes, seconds)
+HMSToHour <- function(hours, minutes, seconds)
 {
   try(if(hours < 0) stop("Hours must be >= 0"))
   try(if(hours > 24) stop("Hours must be <= 24"))
@@ -164,7 +164,7 @@ hmsToHour <- function(hours, minutes, seconds)
 #' degToHour(-1)
 #' degToHour(361)
 
-degToHour <- function(decDeg)
+DegToHour <- function(decDeg)
 {
   try(if(decDeg < 0) stop("Degrees must be >= 0"))
   try(if(decDeg > 360) stop("Degrees must be <= 360"))
@@ -189,7 +189,7 @@ degToHour <- function(decDeg)
 #' hrToDeg(-1)
 #' hrToDeg(25)
 
-hrToDeg <- function(decHr)
+HrToDeg <- function(decHr)
 {
   try(if(decHr < 0) stop("Hours must be >= 0"))
   try(if(decHr > 24) stop("Hours must be <= 24"))
@@ -213,7 +213,7 @@ hrToDeg <- function(decHr)
 #' hrToDMS(-5)
 #' hrToDMS(25)
 
-hrToDMS <- function(decHr)
+HrToDMS <- function(decHr)
 {
   try(if(decHr < 0) stop("Hours must be >= 0"))
   try(if(decHr > 24) stop("Hours must be <= 24"))
@@ -237,7 +237,7 @@ hrToDMS <- function(decHr)
 #' degToHMS(270)
 #' degToHMS(359)
 
-degToHMS <- function(decDeg)
+DegToHMS <- function(decDeg)
 {
   try(if(decDeg < 0) stop("Degrees must be >= 0"))
   try(if(decDeg > 360) stop("Degrees must be <= 360"))
