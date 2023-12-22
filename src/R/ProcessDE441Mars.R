@@ -3,9 +3,9 @@
 
 ProcessDE441Mars <- function(filename)
 {
-  log_info('Reading filename {filename}')
+  logger::log_info('Reading filename {filename}')
   
-  ascii_data <- readLines(here("data", "raw", filename))
+  ascii_data <- readLines(here::here("data", "raw", filename))
   
   # Create vector to store the ascii data sequentially
   vect <- rep(0, 11643300)
@@ -74,13 +74,13 @@ ProcessDE441Mars <- function(filename)
   }
   
   # Create file name to save
-  fn <- str_sub(filename, 1, 9)
+  fn <- stringr::str_sub(filename, 1, 9)
   fnn <- paste(sep = "", "mars_", fn, "_441", ".parquet")
   
-  log_info('Saving filename {fnn}')
+  logger::log_info('Saving filename {fnn}')
   
   #Save Mars data
   df <- as.data.frame(mars_data)
-  write_parquet(df, here("data", "processed", 
+  arrow::write_parquet(df, here::here("data", "processed", 
                          "mars", fnn))
 }
