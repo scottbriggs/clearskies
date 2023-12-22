@@ -1,11 +1,5 @@
-
-library(here)
-library(arrow)
-library(stringr)
-library(dplyr)
-library(logger)
-
-source(here("src", "R", "Scripts.R"))
+# Execute functions to create the master parquet files for all
+# DE441 objects
 
 CreateMasterDE441Sun()
 CreateMasterDE441Moon()
