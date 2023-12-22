@@ -5,27 +5,28 @@
 CreateMasterDE441Moon <- function()
 {
   # Get list of raw files to process
-  f <- list.files(here("data", "raw"))
+  f <- list.files(here::here("data", "raw"))
   
   # Create parquet file for the Moon for each raw file
   lapply(f, ProcessDE441Moon)
   
   # Get list of all parquet files for the Moon
-  fp <- list.files(here("data", "processed", "moon"))
+  fp <- list.files(here::here("data", "processed", "moon"))
   
   # Create data frames for each parquet file
   numFiles <- length(fp)
   df_list <- vector(mode = "list", numFiles)
   for (i in 1:numFiles) {
-    df_list[[i]] <- read_parquet(here("data", "processed", "moon", fp[[i]]))
+    df_list[[i]] <- arrow::read_parquet(
+      here::here("data", "processed", "moon", fp[[i]]))
   }
   
   # Combine data frames into a single data frame
   masterFileMoon <- dplyr::bind_rows(df_list)
   
-  log_info('Save aggregated parquet file for the Moon')
+  logger::log_info('Save aggregated parquet file for the Moon')
   
   # Save aggregated data for the Moon
-  write_parquet(masterFileMoon, here("data", "processed", 
+  arrow::write_parquet(masterFileMoon, here::here("data", "processed", 
                                     "moon", "MoonDE441.parquet"))
 }
