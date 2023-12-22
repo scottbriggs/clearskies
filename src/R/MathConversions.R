@@ -6,7 +6,7 @@
 # intPart(-1.5)
 # intPart(-1.4)
 
-intPart <- function(x)
+IntPart <- function(x)
 {
   y <- floor(x)
 
@@ -19,7 +19,7 @@ intPart <- function(x)
 # fracPart(1.5)
 # fracPart(-1.5)
 
-fracPart <- function(x)
+FracPart <- function(x)
 {
   y <- 0
   if (x <= 0) {
@@ -35,14 +35,14 @@ fracPart <- function(x)
 
 # x is a vector of length 3
 # y is a vector of length 3
-dotProduct <- function(x, y)
+DotProduct <- function(x, y)
 {
   return(x%*%y)
 }
 
 # x is a vector of length 3
 # y is a vector of length 3
-crossProduct <- function(x,y)
+CrossProduct <- function(x,y)
 {
   result <- c(0.0, 0.0, 0.0)
   for (i in 1:length(x)){
@@ -55,13 +55,13 @@ crossProduct <- function(x,y)
 }
 
 # Calculate the magnitude of a vector x of length 3
-vecNorm <- function(x)
+VecNorm <- function(x)
 {
   return(sqrt(x[1] * x[1] + x[2] * x[2] + x[3] * x[3]))
 }
 
 # x is a vector of length 3
-unitVector <- function(x)
+UnitVector <- function(x)
 {
   mag <- vecNorm(x)
   result <- c(0.0, 0.0, 0.0)
@@ -73,14 +73,14 @@ unitVector <- function(x)
 }
 
 # Reduce a to the range 0 <= a < b
-amodulo <- function(a, b)
+Amodulo <- function(a, b)
 {
   return(x <- a - b * floor(a/b))
 }
 
 # Returns a rotation matrix based on the axis (x, y, or z) and the angle phi
 # The angle phi is in radians
-rotationMatrix <- function(axis, phi)
+RotationMatrix <- function(axis, phi)
 {
   mat <- matrix(0.0, nrow = 3, ncol = 3)
   cosphi <- cos(phi)
@@ -110,7 +110,7 @@ rotationMatrix <- function(axis, phi)
 }
 
 # Interpolate three values using the interpolating value n
-interpolate <- function(vec, n)
+Interpolate <- function(vec, n)
 {
   # Take differences
   a <- vec[2] - vec[1]
