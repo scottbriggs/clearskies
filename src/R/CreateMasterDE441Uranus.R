@@ -27,6 +27,6 @@ CreateMasterDE441Uranus <- function()
   logger::log_info('Save aggregated parquet file for Uranus')
   
   # Save aggregated data for Uranus
-  arrow::write_parquet(masterFileVenus, here::here("data", "processed", 
+  arrow::write_parquet(masterFileUranus, here::here("data", "processed", 
                                     "Uranus", "UranusDE441.parquet"))
 }

@@ -17,7 +17,7 @@ CreateMasterDE441Jupiter <- function()
   numFiles <- length(fp)
   df_list <- vector(mode = "list", numFiles)
   for (i in 1:numFiles) {
-    df_list[[i]] <- arrow:read_parquet(
+    df_list[[i]] <- arrow::read_parquet(
       here::here("data", "processed", "jupiter", fp[[i]]))
   }
   
@@ -27,6 +27,6 @@ CreateMasterDE441Jupiter <- function()
   logger::log_info('Save aggregated parquet file for Jupiter')
   
   # Save aggregated data for Jupiter
-  arrow::write_parquet(masterFileVenus, here::here("data", "processed", 
+  arrow::write_parquet(masterFileJupiter, here::here("data", "processed", 
                                     "Jupiter", "JupiterDE441.parquet"))
 }

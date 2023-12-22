@@ -27,6 +27,6 @@ CreateMasterDE441EMB <- function()
   logger::log_info('Save aggregated parquet file for EMB')
   
   # Save aggregated data for EMB
-  arrow::write_parquet(masterFileVenus, here("data", "processed", 
+  arrow::write_parquet(masterFileEMB, here("data", "processed", 
                                     "EMB", "EMBDE441.parquet"))
 }

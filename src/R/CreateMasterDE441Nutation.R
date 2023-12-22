@@ -27,6 +27,6 @@ CreateMasterDE441Nutation <- function()
   logger::log_info('Save aggregated parquet file for Nutation')
   
   # Save aggregated data for Nutation
-  arrow::write_parquet(masterFileVenus, here::here("data", "processed", 
+  arrow::write_parquet(masterFileNutation, here::here("data", "processed", 
                                     "Nutation", "NutationDE441.parquet"))
 }
