@@ -3,7 +3,7 @@
 
 ProcessDE441Mercury <- function(filename)
 {
-  logger:;log_info('Reading filename {filename}')
+  logger::log_info('Reading filename {filename}')
   
   ascii_data <- readLines(here::here("data", "raw", filename))
   

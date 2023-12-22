@@ -75,7 +75,7 @@ ProcessDE441Jupiter <- function(filename)
   fn <- stringr::str_sub(filename, 1, 9)
   fnn <- paste(sep = "", "jupiter_", fn, "_441", ".parquet")
   
-  logger:;log_info('Saving filename {fnn}')
+  logger::log_info('Saving filename {fnn}')
   
   #Save Jupiter data
   df <- as.data.frame(jupiter_data)
