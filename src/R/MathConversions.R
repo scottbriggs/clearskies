@@ -1,10 +1,6 @@
 
 # Function that calculates the integer part of a floating point number.
 # Handles positive and negative numbers.
-# intPart(1.5)
-# intPart(1.4)
-# intPart(-1.5)
-# intPart(-1.4)
 
 IntPart <- function(x)
 {
@@ -16,22 +12,18 @@ IntPart <- function(x)
 
 # Function that calculates the fractional part of a floating point number.
 # Handles positive and negative numbers.
-# fracPart(1.5)
-# fracPart(-1.5)
 
 FracPart <- function(x)
 {
   y <- 0
   if (x <= 0) {
-    y <- x - intPart(x)
+    y <- x - IntPart(x)
   } else {
-    y <- abs(x) - intPart(abs(x))
+    y <- abs(x) - IntPart(abs(x))
   }
 
   return (y)
 }
-
-# Math routines that are useful for computations
 
 # x is a vector of length 3
 # y is a vector of length 3
@@ -63,7 +55,7 @@ VecNorm <- function(x)
 # x is a vector of length 3
 UnitVector <- function(x)
 {
-  mag <- vecNorm(x)
+  mag <- VecNorm(x)
   result <- c(0.0, 0.0, 0.0)
   result[1] <- x[1] / mag
   result[2] <- x[2] / mag
@@ -75,7 +67,7 @@ UnitVector <- function(x)
 # Reduce a to the range 0 <= a < b
 Amodulo <- function(a, b)
 {
-  return(x <- a - b * floor(a/b))
+  return(a - b * floor(a/b))
 }
 
 # Returns a rotation matrix based on the axis (x, y, or z) and the angle phi
