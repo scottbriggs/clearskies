@@ -1,0 +1,88 @@
+---
+title: "Test Unit Conversion Functions"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Configuration
+```{r}
+library(here)
+source(here("src", "R", "Scripts.R"))
+```
+
+
+# Test converting degrees, arc minutes, and arc seconds to degrees
+```{r}
+DMSToDeg(24, 13, 18)
+DMSToDeg(- 24, 13, 18)
+DMSToDeg(13, 4, 10)
+DMSToDeg(0, -5, 30)
+DMSToDeg(0, 0, 30)
+DMSToDeg(0, 0, -30)
+```
+
+# Test converting degrees, arc minutes, and arc seconds to degrees
+```{r}
+DegToDMS(0.508333)
+DegToDMS(-0.508333)
+DegToDMS(10.2958)
+DegToDMS(13.069444)
+```
+
+# Convert decimal hours to hours, minutes, and seconds
+```{r}
+HourToHMS(20.352)
+HourToHMS(5.7333)
+HourToHMS(-1)
+HourToHMS(25)
+```
+
+# Convert hours, minutes, and seconds to decimal hours.
+```{r}
+HMSToHour(10, 25, 11)
+HMSToHour(-2, 0, 0)
+HMSToHour(25, 0, 0)
+```
+
+# Convert degrees to hours
+```{r}
+DegToHour(156.3)
+DegToHour(90)
+DegToHour(180)
+DegToHour(270)
+DegToHour(-1)
+DegToHour(361)
+```
+
+# Convert hours to degrees
+```{r}
+HrToDeg(10.42)
+HrToDeg(6)
+HrToDeg(12)
+HrToDeg(18)
+HrToDeg(-1)
+HrToDeg(25)
+```
+
+# Convert decimal hours to degrees, arc minutes, and arc seconds.
+```{r}
+HrToDMS(6)
+HrToDMS(12)
+HrToDMS(18)
+HrToDMS(18.5)
+HrToDMS(-5)
+HrToDMS(25)
+```
+
+# Convert decimal degrees to hours, minutes, and seconds.
+```{r}
+DegToHMS(-5)
+DegToHMS(361)
+DegToHMS(90)
+DegToHMS(180)
+DegToHMS(270)
+DegToHMS(359)
+```
+
+

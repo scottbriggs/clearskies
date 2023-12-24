@@ -1,13 +1,13 @@
-# Notebook to test math functions
-
-library(here)
-source(here("src", "R", "Scripts.R"))
-
-
 ---
 title: "Test Math Functions"
 output: html_notebook
 ---
+
+# Configuration
+```{r}
+library(here)
+source(here("src", "R", "Scripts.R"))
+```
 
 # Test Integer Part
 ```{r}

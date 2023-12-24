@@ -1,21 +1,4 @@
-#' Convert degrees, arc minutes, and arc seconds to decimal degrees.
-#' @description
-#' Function that returns decimal degrees when given degrees, ar cminutes,
-#' and arc seconds. The function supports negative degrees, arc minutes, and
-#' arc seconds.
-#' @param deg Numeric
-#' @param min Numeric
-#' @param sec Numeric
-#' @return Decimal degrees
-#' @export
-#' @examples
-#' dmsToDeg(24, 13, 18)
-#' dmsToDeg(- 24, 13, 18)
-#' dmsToDeg(13, 4, 10)
-#' dmsToDeg(0, -5, 30)
-#' dmsToDeg(0, 0, 30)
-#' dmsToDeg(0, 0, -30)
-#'
+# Convert degrees, arc minutes, and arc seconds to decimal degrees.
 DMSToDeg <- function(deg, min, sec)
 {
   sg <- 0
@@ -39,20 +22,7 @@ DMSToDeg <- function(deg, min, sec)
   return (decDeg)
 }
 
-#' Convert decimal degrees to degrees, arc minutes, and arc seconds.
-#' @description
-#' Function that returns a vector of degrees, arc minutes, and
-#' arc seconds when given decimal degrees. Negative and positive degrees
-#' are supported.
-#' @param decDeg Numeric
-#' @return A vector of length 3
-#' @export
-#' @examples
-#' degToDMS(0.508333)
-#' degToDMS(-0.508333)
-#' degToDMS(10.2958)
-#' degToDMS(13.069444)
-
+# Convert decimal degrees to degrees, arc minutes, and arc seconds.
 DegToDMS <- function(decDeg)
 {
   sg <- sign(decDeg)
@@ -85,19 +55,7 @@ DegToDMS <- function(decDeg)
   return (c(Degrees, Minutes, Seconds))
 }
 
-#' Convert decimal hours to hours, minutes, and seconds.
-#' @description
-#' Function to convert decimal hours to hours, minutes, and seconds. Hours must
-#' be greater than or equal to 0 and less than or equal to 24.
-#' @param decHr Numeric
-#' @return A vector of length 3
-#' @export
-#' @examples
-#' hourToHMS(20.352)
-#' hourToHMS(5.7333)
-#' hourToHMS(-1)
-#' hourToHMS(25)
-
+# Convert decimal hours to hours, minutes, and seconds.
 HourToHMS <- function(decHr)
 {
   try(if(decHr < 0) stop("Hours must be >= 0"))
@@ -122,20 +80,7 @@ HourToHMS <- function(decHr)
   return (c(Hours, Minutes, Seconds))
 }
 
-#' Convert hours, minutes, and seconds to decimal hours.
-#' @description
-#' Function to convert hours, minutes, and seconds to decimal hours. Hours must
-#' be greater than or equal to 0 and less than or equal to 24.
-#' @param hours Numeric
-#' @param minutes Numeric
-#' @param seconds Numeric
-#' @return decimal Hours
-#' @export
-#' @examples
-#' hmsToHour(10, 25, 11)
-#' hmsToHour(-2, 0, 0)
-#' hmsToHour(25, 0, 0)
-
+# Convert hours, minutes, and seconds to decimal hours.
 HMSToHour <- function(hours, minutes, seconds)
 {
   try(if(hours < 0) stop("Hours must be >= 0"))
@@ -149,21 +94,7 @@ HMSToHour <- function(hours, minutes, seconds)
   return (decHr)
 }
 
-#' Convert degrees to hours
-#' @description
-#' Function to convert decimal degrees to decimal hours. Degrees should always
-#' be positive as hours must always be positive.
-#' @param decDeg Numeric
-#' @return decimal hours
-#' @export
-#' @examples
-#' degToHour(156.3)
-#' degToHour(90)
-#' degToHour(180)
-#' degToHour(270)
-#' degToHour(-1)
-#' degToHour(361)
-
+# Convert degrees to hours
 DegToHour <- function(decDeg)
 {
   try(if(decDeg < 0) stop("Degrees must be >= 0"))
@@ -174,21 +105,7 @@ DegToHour <- function(decDeg)
   return (decHr)
 }
 
-#' Convert hours to degrees
-#' @description
-#' Function to convert decimal hours to  decimal degrees. Hours should
-#' always be positive as degrees must always be positive.
-#' @param decHr Numeric
-#' @return decimal degrees
-#' @export
-#' @examples
-#' hrToDeg(10.42)
-#' hrToDeg(6)
-#' hrToDeg(12)
-#' hrToDeg(18)
-#' hrToDeg(-1)
-#' hrToDeg(25)
-
+# Convert hours to degrees
 HrToDeg <- function(decHr)
 {
   try(if(decHr < 0) stop("Hours must be >= 0"))
@@ -199,37 +116,18 @@ HrToDeg <- function(decHr)
   return (decDeg)
 }
 
-#' Convert decimal hours to degrees, arc minutes, and arc seconds.
-#' @description
-#' Function to convert decimal hours to degrees, arc minutes, and arc seconds.
-#' @param decHr Numeric
-#' @return A vector of length 3
-#' @export
-#' @examples
-#' hrToDMS(6)
-#' hrToDMS(12)
-#' hrToDMS(18)
-#' hrToDMS(18.5)
-#' hrToDMS(-5)
-#' hrToDMS(25)
-
+# Convert decimal hours to degrees, arc minutes, and arc seconds.
 HrToDMS <- function(decHr)
 {
   try(if(decHr < 0) stop("Hours must be >= 0"))
   try(if(decHr > 24) stop("Hours must be <= 24"))
 
-  decDeg <- hrToDeg(decHr)
+  decDeg <- HrToDeg(decHr)
 
-  return (degToDMS(decDeg))
+  return (DegToDMS(decDeg))
 }
 
-#' Convert decimal degrees to hours, minutes, and seconds.
-#' @description
-#' Function to convert decimal degrees to hours, minutes, and seconds.
-#' @param decDeg Numeric
-#' @return A vector of length 3
-#' @export
-#' @examples
+# Convert decimal degrees to hours, minutes, and seconds.
 #' degToHMS(-5)
 #' degToHMS(361)
 #' degToHMS(90)
@@ -242,7 +140,7 @@ DegToHMS <- function(decDeg)
   try(if(decDeg < 0) stop("Degrees must be >= 0"))
   try(if(decDeg > 360) stop("Degrees must be <= 360"))
 
-  decHr <- degToHour(decDeg)
+  decHr <- DegToHour(decDeg)
 
-  return (hourToHMS(decHr))
+  return (HourToHMS(decHr))
 }
