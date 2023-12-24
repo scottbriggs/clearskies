@@ -1,0 +1,39 @@
+---
+title: "Test DE441 Parquet Files"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r}
+library(here)
+library(arrow)
+source(here("src", "R", "Scripts.R"))
+options(digits = 15)
+```
+
+# Statistics on the Sun
+```{r}
+sunData <- arrow::read_parquet(here::here("data", "processed", "sun", "SunDE441.parquet"))
+head(sunData, n = 10)
+min(sunData$Julian_Day_Start)
+max(sunData$Julian_Day_Start)
+min(sunData$Julian_Day_End)
+max(sunData$Julian_Day_End)
+min(sunData$INTERVAL)
+max(sunData$INTERVAL)
+rm(sunData)
+```
+
+# Statistics on the Moon
+```{r}
+moonData <- arrow::read_parquet(here::here("data", "processed", "moon", "MoonDE441.parquet"))
+head(moonData, n = 16)
+min(moonData$Julian_Day_Start)
+max(moonData$Julian_Day_Start)
+min(moonData$Julian_Day_End)
+max(moonData$Julian_Day_End)
+min(moonData$INTERVAL)
+max(moonData$INTERVAL)
+rm(moonData)
+```
