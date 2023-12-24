@@ -128,12 +128,6 @@ HrToDMS <- function(decHr)
 }
 
 # Convert decimal degrees to hours, minutes, and seconds.
-#' degToHMS(-5)
-#' degToHMS(361)
-#' degToHMS(90)
-#' degToHMS(180)
-#' degToHMS(270)
-#' degToHMS(359)
 
 DegToHMS <- function(decDeg)
 {
